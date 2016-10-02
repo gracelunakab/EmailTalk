@@ -1,0 +1,10 @@
+Sep 29, 2016 1:10:51 PM com.ts.util.UseLogger doSomeThingAndLog
+INFO: hello
+Sep 29, 2016 1:10:52 PM com.ts.util.UseLogger doSomeThingAndLog
+SEVERE: Info Log
+Sep 29, 2016 1:10:52 PM com.ts.util.UseLogger doSomeThingAndLog
+SEVERE: Info Log
+Sep 29, 2016 1:10:52 PM com.ts.util.UseLogger doSomeThingAndLog
+WARNING: Info Log
+Sep 29, 2016 1:10:52 PM com.ts.util.UseLogger doSomeThingAndLog
+INFO: Info Log
