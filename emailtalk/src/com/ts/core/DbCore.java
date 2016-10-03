@@ -1,19 +1,13 @@
-package com.ts.entitymanager;
+package com.ts.core;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public final class MysqlEntity {
-	public static void main(String []args ){
-		try {
-			selectRecordsFromTable();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+public final class DbCore {
+
  private static Connection conn;
  public static Connection MysqlEntity(){
   conn = null;
@@ -42,26 +36,16 @@ return conn;
  }
  
  
-// public static void main(String[] argv) {
-//
-//		try {
-//
-//			selectRecordsFromTable();
-//
-//		} catch (SQLException e) {
-//
-//			System.out.println(e.getMessage());
-//
-//		}
-//
-//	}
 
-	private static void selectRecordsFromTable() throws SQLException {
+	@SuppressWarnings("unused")
+	private static void selectRecordsFromTable(String TableName, String ColumnName1, String
+			ColumnName2, String ColumnName3, String ColumnName4) throws SQLException {
 
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
 
-		String selectSQL = "SELECT User_ID, First_Name, Last_Name, Email_Address FROM Users WHERE User_ID = ?";
+		String selectSQL = "SELECT "+ColumnName1+", "+ColumnName2+", "+ColumnName3+", "+ColumnName4+" FROM "+TableName+" WHERE "+ColumnName1+" = ?";
+	//TODO	String selectSQL = selectSQLqueryparams.replace("ColumnName1", ColumnName1);
 
 		try {
 			dbConnection = MysqlEntity();
