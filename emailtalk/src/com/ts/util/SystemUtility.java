@@ -31,5 +31,12 @@ public class SystemUtility {
 		Calendar cal = Calendar.getInstance();
 		return (dateFormat.format(cal.getTime()));
 	}
+	
+
+	     public String doit() {
+	        // output : doit
+			return  Thread.currentThread().getStackTrace()[1].getMethodName();
+	     }
+	   
 
 }
