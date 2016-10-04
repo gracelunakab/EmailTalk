@@ -4,12 +4,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.Set;
+import java.util.logging.Logger;
 @SuppressWarnings("static-access")
 public class RessourceCaller {
-	
+	   private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
 	private static RessourceCaller PropertiesCache;
 	private final static Properties configProp = new Properties();
-	private static String Propertyfilename;
+	private static String Propertyfilename ="Config.properties";
 	
 	public RessourceCaller setPropertyfilename(String Propertyfilename ){
 		this.Propertyfilename=Propertyfilename;
@@ -19,8 +21,8 @@ public class RessourceCaller {
 
 	public RessourceCaller() {
 		// Private constructor to restrict new instances
-		InputStream in = this.getClass().getClassLoader().getResourceAsStream("Config.properties");
-		System.out.println("Read all properties from file");
+		InputStream in = this.getClass().getClassLoader().getResourceAsStream(Propertyfilename);
+		LOGGER.info("Reading properties from file: "+Propertyfilename);
 		try {
 			configProp.load(in);
 		} catch (IOException e) {
@@ -63,11 +65,17 @@ public class RessourceCaller {
 	
 
 	public String getgmail(){
-		return (PropertiesCache.getInstance().getProperty("gmail"));
+		return PropertiesCache.getInstance().getProperty("gmail");
 	}
 	public String getallproperties(){
 		return PropertiesCache.getInstance().getAllPropertyNames().toString();
 	}
-	
+	public String getgmailUrl(){
+		return PropertiesCache.getInstance().getProperty("gmailUrl");
+	}
+	// Browser Related 
+	public String getBrowserLaunchMessage(){
+		return PropertiesCache.getInstance().getProperty("gmailUrl");
+	}
 }
 	
